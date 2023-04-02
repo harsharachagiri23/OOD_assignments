@@ -1,0 +1,20 @@
+package edu.neu.csye6200;
+
+public class Demo {
+	public static void run() {
+		Queue q = new Queue(5);
+		q.enqueue(1); // 1st in
+		q.enqueue(2); // 2nd in
+		q.enqueue(3); // 3rd in
+		System.out.println("Front element is: " + q.peek());
+		q.dequeue();// 1st out is 1
+		System.out.println("Front element is: " + q.peek());
+		System.out.println("Queue size is " + q.size());
+		q.dequeue();// 2nd out is 2
+		q.dequeue();// 3rd out is 3
+		if ( q.isEmpty() )
+		     System.out.println("Queue Is Empty");
+		else
+		     System.out.println("Queue Is Not Empty");
+	}
+}

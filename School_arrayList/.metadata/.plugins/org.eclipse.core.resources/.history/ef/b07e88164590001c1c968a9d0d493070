@@ -1,0 +1,88 @@
+package edu.neu.csye6200;
+
+public class Person implements Comparable<Person>{
+private long person_id;
+private String first_name;
+private String last_name;
+private int age;
+private String gender;
+
+public Person() {
+	super();
+}
+
+public Person(long person_id, String first_name, String last_name, int age, String gender) {
+	super();
+	this.person_id = person_id;
+	this.first_name = first_name;
+	this.last_name = last_name;
+	this.age = age;
+	this.gender = gender;
+}
+
+public long getPerson_id() {
+	return person_id;
+}
+
+public void setPerson_id(long person_id) {
+	this.person_id = person_id;
+}
+
+public String getFirst_name() {
+	return first_name;
+}
+public void setFirst_name(String first_name) {
+	this.first_name = first_name;
+}
+
+public String getLast_name() {
+	return last_name;
+}
+public void setLast_name(String last_name) {
+	this.last_name = last_name;
+}
+public int getAge() {
+	return age;
+}
+public String getGender() {
+	return gender;
+}
+public void setGender(String gender) {
+	this.gender = gender;
+}
+public void setAge(int age) {
+	this.age = age;
+}
+
+@Override
+public String toString() {
+	return "Person [Person ID" + person_id + "first_name=" + first_name + ", last_name=" + last_name + ", age=" + age + ", gender=" + gender
+			+ "]";
+}
+/** Overriding compareTo method to sort persons based on age   
+ * @param o Person object     
+ * @return integer result of comparison    
+ * */
+@Override
+public int compareTo(Person o) {
+	return Integer.compare(this.age, o.getAge());
+}
+
+/** Person comparators for Person sorting based on Last name, Person ID and GPA.    
+ * @param o1 Person object    
+ * @param o2 Person object    
+ * @return integer result of comparison    
+ * */
+public static int compareByLastName(Person o1, Person o2) {
+	return o1.getLast_name().compareToIgnoreCase(o2.getLast_name());      
+	}
+
+public static int compareByID(Person o1, Person o2) {
+	return Long.compare(o1.getPerson_id(), o2.getPerson_id());      
+	}
+public static int compareByGPA(Person o1, Person o2) {
+	Student x = (Student)o1;
+	Student y = (Student)o2;
+	return Double.compare(x.getGpa(), y.getGpa());
+}
+}

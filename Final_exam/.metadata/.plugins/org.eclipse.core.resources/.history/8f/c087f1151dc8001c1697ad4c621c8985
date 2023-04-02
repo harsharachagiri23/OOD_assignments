@@ -1,0 +1,266 @@
+package edu.neu.csye6200;
+
+import neu.csye6200.src.Item.AbstractItemFactory;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class Cart {
+
+//    private double cartTotal=0;
+
+    /**
+     * Demonstrate the use of this class and simulate on-line shopping cart
+     */
+    public static void demo() {
+        System.out.println("\n\t" + Cart.class.getName() + ".demo()...");
+
+        Cart obj = new Cart();
+        List<Item> itemList=new ArrayList<>();
+        AbstractItemFactory abstractItemFactory= new AbstractItemFactory().getInstance();
+
+
+        /**
+         * Add initial Items to Cart IN THIS ORDER using factory
+         */
+        System.out.println("ADD ITEM to CART: \"3,Almond Milk,2.49\"");
+        abstractItemFactory.addItem("3,Almond Milk,2.49",itemList);
+        System.out.println("ADD ITEM to CART: \"5,Wheat Bread,1.49\"");
+        abstractItemFactory.addItem("5,Wheat Bread,1.49",itemList);
+        System.out.println("ADD ITEM to CART: \"2,OJ,3.49\"");
+        abstractItemFactory.addItem("2,OJ,3.49",itemList);
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        obj.show(itemList);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+        /**
+         * sort Items in Cart and SHOW CART WITH TOTAL COST (after each SORT)
+         */
+
+        System.out.println("\n\t SORT Items by ID...");
+        itemList.
+        stream().
+        sorted(Comparator.comparing(Item::getItemId)).
+        forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+//* TO BE COMPLETED BY STUDENT *
+
+
+        System.out.println("\n\t SORT Items by PRICE...");
+        itemList.
+                stream().
+                sorted(Comparator.comparing(Item::getItemPrice)).
+                forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+//* TO BE COMPLETED BY STUDENT *
+
+
+        System.out.println("\n\t SORT Items by NAME...");
+//* TO BE COMPLETED BY STUDENT *
+        itemList.
+                stream().
+                sorted(Comparator.comparing(Item::getItemName)).
+                forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+
+
+        /**
+         * Remove Items from cart:
+         *         "5,Wheat Bread,1.49"
+         *         "3,Almond Milk,2.49"
+         */
+        System.out.println("\n\t Remove Items from CART...");
+        System.out.println("\n\t Remove \"5,Wheat Bread,1.49\" ...");
+        itemList.removeIf(e -> e.getItemId()==5);
+        System.out.println("\n\t Remove \"3,Almond Milk,2.49\" ...");
+        itemList.removeIf(e -> e.getItemId()==3);
+        System.out.println("\n\t AND SHOW UPDATED CART...");
+        itemList.stream().forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+
+
+        /**
+         * add items to cart and SHOW CART with TOTAL COST
+         */
+        System.out.println("ADD ADDITIONAL Items to Cart...");
+        System.out.println("ADD ITEM to CART: \"6,Swiss Cheese,6.49\"");
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+        abstractItemFactory.addItem("6,Swiss Cheese,6.49",itemList);
+        itemList.stream().forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+        System.out.println("ADD ITEM to CART: \"7,Blue Cheese,6.49\"");
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+        abstractItemFactory.addItem("7,Blue Cheese,6.49",itemList);
+        itemList.stream().forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+
+
+        System.out.println("\n\t" + Cart.class.getName() + ".demo()... done!");
+    }
+
+    public static void demo2(){
+
+        System.out.println("\n\t" + Cart.class.getName() + ".demo2()...");
+
+        Cart obj = new Cart();
+        List<Item> itemList=new ArrayList<>();
+        AbstractItemFactory abstractItemFactory= new AbstractItemFactory().getInstance();
+
+
+        /**
+         * Add initial Items to Cart IN THIS ORDER using factory
+         */
+        System.out.println("ADD ITEM to CART: \"3,Almond Milk,2.49\"");
+        abstractItemFactory.addItem("3,Almond Milk,2.49",itemList);
+        System.out.println("ADD ITEM to CART: \"5,Wheat Bread,1.49\"");
+        abstractItemFactory.addItem("5,Wheat Bread,1.49",itemList);
+        System.out.println("ADD ITEM to CART: \"2,OJ,3.49\"");
+        abstractItemFactory.addItem("2,OJ,3.49",itemList);
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        obj.show(itemList);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+        /**
+         * sort Items in Cart and SHOW CART WITH TOTAL COST (after each SORT)
+         */
+
+        System.out.println("\n\t SORT Items by ID...");
+        itemList=sortById(itemList);
+        for (Item s : itemList) {
+            System.out.println(s.toString());
+        }
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+//* TO BE COMPLETED BY STUDENT *
+
+
+        System.out.println("\n\t SORT Items by PRICE...");
+        itemList=sortByPrice(itemList);
+        for (Item s : itemList) {
+            System.out.println(s.toString());
+        }
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+//* TO BE COMPLETED BY STUDENT *
+
+
+        System.out.println("\n\t SORT Items by NAME...");
+//* TO BE COMPLETED BY STUDENT *
+        itemList=sortByName(itemList);
+        for (Item s : itemList) {
+            System.out.println(s.toString());
+        }
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+
+
+
+        /**
+         * Remove Items from cart:
+         *         "5,Wheat Bread,1.49"
+         *         "3,Almond Milk,2.49"
+         */
+        System.out.println("\n\t Remove Items from CART...");
+        System.out.println("\n\t Remove \"5,Wheat Bread,1.49\" ...");
+        itemList.removeIf(e -> e.getItemId()==5);
+        System.out.println("\n\t Remove \"3,Almond Milk,2.49\" ...");
+        itemList.removeIf(e -> e.getItemId()==3);
+        System.out.println("\n\t AND SHOW UPDATED CART...");
+        itemList.stream().forEach(System.out::println);
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+
+
+        /**
+         * add items to cart and SHOW CART with TOTAL COST
+         */
+        System.out.println("ADD ADDITIONAL Items to Cart...");
+        System.out.println("ADD ITEM to CART: \"6,Swiss Cheese,6.49\"");
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+        abstractItemFactory.addItem("6,Swiss Cheese,6.49",itemList);
+        for (Item s : itemList) {
+            System.out.println(s.toString());
+        }
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+        System.out.println("ADD ITEM to CART: \"7,Blue Cheese,6.49\"");
+        System.out.println("\n\t AND SHOW UPDATED CART ...");
+
+//* TO BE COMPLETED BY STUDENT *
+        System.out.println();
+        abstractItemFactory.addItem("7,Blue Cheese,6.49",itemList);
+        for (Item s : itemList) {
+            System.out.println(s.toString());
+        }
+        System.out.println("CartTotal: " +obj.Checkout(itemList));
+        System.out.println();
+
+
+
+        System.out.println("\n\t" + Cart.class.getName() + ".demo2()... done!");
+
+    }
+
+
+
+    public void show(List<Item> itemList){
+        for (int i=0;i<itemList.size();i++){
+            System.out.println(itemList.get(i).toString());
+        }
+    }
+
+    public double Checkout(List<Item> itemList) {
+        double cartTotal=0;
+        for (int i=0;i<itemList.size();i++){
+            cartTotal+=itemList.get(i).getItemPrice();
+        }
+        return cartTotal;
+    }
+
+    public static  List<Item> sortByName(List<Item> itemList){
+        Comparator<Item> sortByName = (o1, o2) -> String.valueOf(o1.getItemName()).compareToIgnoreCase(String.valueOf(o2.getItemName()));
+        itemList.sort(sortByName);
+        return itemList;
+    }
+
+    public static  List<Item> sortById(List<Item> itemList){
+        Comparator<Item> sortById = (o1, o2) -> String.valueOf(o1.getItemId()).compareToIgnoreCase(String.valueOf(o2.getItemId()));
+        itemList.sort(sortById);
+        return itemList;
+    }
+
+    public static  List<Item> sortByPrice(List<Item> itemList){
+        Comparator<Item> sortByPrice = (o1, o2) -> String.valueOf(o1.getItemPrice()).compareToIgnoreCase(String.valueOf(o2.getItemPrice()));
+        itemList.sort(sortByPrice);
+        return itemList;
+    }
+}

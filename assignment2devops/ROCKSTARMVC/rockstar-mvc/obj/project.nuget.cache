@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "fERQOSx23uhvirUyB51YdMNZnDbnStykDG1MbuehAy6W87oCTTFSBXGaqIbokk++uZ22vNHfBmcyGTvcgh3OFw==",
+  "success": true,
+  "projectFilePath": "/Users/dineshreddy/Desktop/DevOps/Lecture 2/RockstarMVC/rockstar-mvc/asp.net.mvc.csproj",
+  "expectedPackageFiles": [
+    "/Users/dineshreddy/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/Users/dineshreddy/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/Users/dineshreddy/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.29/microsoft.netcore.app.host.osx-x64.3.1.29.nupkg.sha512"
+  ],
+  "logs": []
+}

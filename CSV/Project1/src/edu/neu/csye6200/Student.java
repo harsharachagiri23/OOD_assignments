@@ -1,0 +1,88 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Student extends Person implements Comparable<Student>{
+private int studentId;
+private double gpa;
+public Student(int id, int age, String firstName, String lastName, String parentFirstName, String parentLastName, int studentId, double gpa) {
+	super(id, age, firstName, lastName, parentFirstName, parentLastName);
+	this.studentId = studentId;
+	this.gpa = gpa;
+}
+public Student() {
+	super();
+}
+public int getStudentId() {
+	return studentId;
+}
+public void setStudentId(int studentId) {
+	this.studentId = studentId;
+}
+public double getGpa() {
+	return gpa;
+}
+public void setGpa(double gpa) {
+	this.gpa = gpa;
+}
+@Override
+public String toString() {
+	return "Student [ID= " + super.getId() + ", Student Id= " + studentId + ", First Name= " + super.getFirstName() +
+			", Last Name= " + super.getLastName() + ", Age= " + super.getAge() + ", GPA= " + gpa + ", Parent Name= "+ super.getParentFirstName()
+			+ " "+ super.getParentLastName() + "]" ;
+}
+
+public void createStudentCSVFile() {
+	String [] students = {"1,100,Harish,Rathode,20,James,Rathode,3.7",
+	                      "2,200,Hema,Mukerjee,21,Arun,Mukerjee,4.0",
+	                      "3,300,Ronit,Sharma,22,Mohanlal,Sharma,3.6",
+	                      "4,400,Dravid,Mahapatro,23,Lal,Mahapatro,3.5"};
+	FileUtil fileUtil = new FileUtil();
+	fileUtil.writeCSVFile(students);
+}
+
+public List<Student> createStudentObjects(){
+	List<String> fileOutput = new ArrayList<>();
+	List<Student> students = new ArrayList<>();
+	FileUtil fileUtil = new FileUtil();
+	fileUtil.readStudentsCSVFile(fileOutput);
+	for(String inputLine : fileOutput) {
+		Scanner input = new Scanner(inputLine);
+		input.useDelimiter(",");
+		int id = input.nextInt();
+		int studentId = input.nextInt();
+		String firstName = input.next();
+		String lastName = input.next();
+		int age = input.nextInt();
+		String parentFirstName = input.next();
+		String parentLastName = input.next();
+		double gpa = input.nextDouble();
+		students.add(new Student(id, age, firstName, lastName, parentFirstName, parentLastName, studentId, gpa));
+		input.close();
+	}
+	return students;
+}
+
+@Override
+public int compareTo(Student o) {
+	return Integer.compare(this.getId(), o.getId());
+}
+
+public static int compareByStudentId(Student o1, Student o2) {
+	return Integer.compare(o1.getStudentId(), o2.getStudentId());
+}
+
+public static int compareByFirstName(Student o1, Student o2) {
+	return o1.getFirstName().compareToIgnoreCase(o2.getFirstName());
+}
+
+public static int compareByLastName(Student o1, Student o2) {
+	return o1.getLastName().compareToIgnoreCase(o2.getLastName());
+}
+
+public static int compareByGPA(Student o1, Student o2) {
+	return Double.compare(o1.getGpa(), o2.getGpa());
+}
+}

@@ -1,0 +1,19 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Person person = new Person(01, 12, "Uday");
+		Student student = new Student(02, 13, "Ratna", 01234563234,3);
+		Person person1 = new Student(01, 20, "lala", 0121, 9);
+		System.out.println("person:" + person.toString());
+		System.out.println("student:" + student.toString());
+		List<Integer> numbers = new ArrayList<>(); 
+		System.out.println(numbers.getClass().getSimpleName());
+	}
+
+}

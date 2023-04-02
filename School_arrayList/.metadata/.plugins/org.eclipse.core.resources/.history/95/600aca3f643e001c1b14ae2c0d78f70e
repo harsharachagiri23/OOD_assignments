@@ -1,0 +1,12 @@
+package edu.neu.csye6200;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Person person = new Person(01, 12, "Uday");
+		Student student = new Student(02, 13, "Ratna", 01234563234,3);
+		System.out.println("person:" + person.toString());
+	}
+
+}

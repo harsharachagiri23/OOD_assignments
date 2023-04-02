@@ -1,0 +1,60 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+
+public class GenericQueue<T> {
+private int front;
+private int rear;
+private ArrayList<T> array = new ArrayList<>();
+
+public GenericQueue() {
+	super();
+	this.front = -1;
+	this.rear = -1;
+}
+public T front() {
+	if(front == -1) {
+		return null;
+	}
+	return array.get(front);
+}
+public T rear() {
+	if(rear == -1) {
+		return null;
+	}
+	return array.get(rear);
+}
+
+public boolean isEmpty() {
+	return (front == -1 && rear == -1);
+}
+
+public void enqueue(T item) {
+if(isEmpty()) {
+	rear = 0;
+	front = 0;
+	array.add(item);
+}
+else {
+	front++;
+	if(array.size() > front) {
+		array.set(front, item);
+	}
+	else {
+		array.add(item);
+	}
+}
+}
+public void dequeue() {
+if(isEmpty()) {
+	System.out.println("Queue is already empty");
+}
+else if(front == rear){
+	front = -1;
+	rear = -1;
+}
+else {
+	rear++;
+}
+}
+}

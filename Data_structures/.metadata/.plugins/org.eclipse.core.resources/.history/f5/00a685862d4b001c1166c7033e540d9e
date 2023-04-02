@@ -1,0 +1,52 @@
+package edu.neu.csye6200;
+
+public class Demo {
+	public static void run() {
+		System.out.println("----------Implementing Queue with primitive type----------");
+		Queue q = new Queue(5);
+		q.enqueue(1); // 1st in
+		q.enqueue(2); // 2nd in
+		q.enqueue(3); // 3rd in
+		System.out.println("Front element is: " + q.peek());
+		q.dequeue();// 1st out is 1
+		System.out.println("Front element is: " + q.peek());
+		System.out.println("Queue size is " + q.size());
+		q.dequeue();// 2nd out is 2
+		q.dequeue();// 3rd out is 3
+		if ( q.isEmpty() )
+		     System.out.println("Queue Is Empty");
+		else
+		     System.out.println("Queue Is Not Empty");
+		System.out.println("----------Implementing Stack with primitive type----------");
+		Stack s = new Stack(5);
+		s.push(1); // 1st in
+		s.push(2); // 2nd in
+		s.pop(); // 2nd out is 2
+		s.pop(); // 1st out is 1
+		s.push(2); // 3rd in
+		System.out.println("Top element is: " + s.peek());
+		System.out.println("Stack size is " + s.size());
+		s.pop(); // 3rd out is 3
+		if ( s.isEmpty() )
+		     System.out.println("Stack Is Empty");
+		else
+		     System.out.println("Stack Is Not Empty");
+		
+		System.out.println("----------Implementing Queue with Generic type----------");
+		GenericQueue<String> queue = new GenericQueue<>();
+		queue.enqueue("Harry"); // 1st in
+		queue.enqueue("Ron"); // 2nd in
+		queue.enqueue("Hermoine"); // 3rd in
+		System.out.println("Front element is: " + queue.front());
+		queue.dequeue();// 1st out is 1
+		System.out.println("Front element is: " + queue.front());
+//		System.out.println("Queue size is " + queue.size());
+		queue.dequeue();// 2nd out is 2
+		queue.dequeue();// 3rd out is 3
+		if ( queue.isEmpty() )
+		     System.out.println("Queue Is Empty");
+		else
+		     System.out.println("Queue Is Not Empty");
+	}
+	
+}

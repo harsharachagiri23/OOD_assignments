@@ -1,0 +1,30 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+
+public class GenericStack<T> {
+private int top;
+private ArrayList<T> array = new ArrayList<>();
+public GenericStack() {
+	super();
+	this.top = -1;
+}
+public boolean isEmpty() {
+	return top == -1;
+}
+public void push(T item) {
+System.out.println("Inserting " + item);
+if(isEmpty()) {
+	top = 0;
+	array.add(item);
+}
+else {
+	top++;
+	if(array.size()>top) {
+		array.set(top, item);
+	}
+	else
+		array.add(item);
+}
+}
+}

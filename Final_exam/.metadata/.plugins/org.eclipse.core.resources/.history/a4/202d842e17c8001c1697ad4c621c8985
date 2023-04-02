@@ -1,0 +1,45 @@
+package edu.neu.csye6200;
+
+import edu.neu.csye6200.Item.AbstractFactoryAPI;
+import java.util.*;
+
+public class Cart {
+	
+	public static List<Item> itemList = new ArrayList<Item>();
+	
+	Comparator sortingByName = new Comparator() {
+		   public int compare(Item it1, Item it2) {
+			return it1.getName().compareTo(it2.getName());
+		   }
+		};
+
+	
+    public static void demo() {
+        System.out.println("\n\t" + Cart.class.getName() + ".demo()...");
+        
+        Cart objCart = new Cart();
+        System.out.println("Adding inital Items to cart : ");
+        Item almondMilk = AbstractFactoryAPI.AbstractItemFactory.getInstance(3, "Almond Milk", 2.49);
+        Item bread = AbstractFactoryAPI.AbstractItemFactory.getInstance(5, "Wheat Bread", 1.49);
+        Item otemObj = AbstractFactoryAPI.AbstractItemFactory.getInstance(2, "OJ", 3.49);
+        
+        itemList.add(almondMilk);
+        itemList.add(bread);
+        itemList.add(otemObj);
+        
+        // Sort 
+        
+        objCart.show();
+    }
+    
+    public static void demo2() {
+    	
+    }
+    
+    public void show() {
+    	for(Item itk : itemList) {
+    		System.out.println(itk.toString());
+    	}
+    }
+	
+}

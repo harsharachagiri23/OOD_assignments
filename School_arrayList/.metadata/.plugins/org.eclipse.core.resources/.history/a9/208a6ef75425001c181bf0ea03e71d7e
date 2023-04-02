@@ -1,0 +1,19 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DemoClass {
+	public static void run() {
+		 List<Person> persons_list = new ArrayList<>();
+		 Person alec = new Person("Alec", "Benjamin", 20, "Male");
+		 Person justin = new Person("Justin", "Bieber", 24, "Male");
+		 Person olivia = new Person("Olivia", "O'brien", 27, "Female");
+		 Person bruno = new Person("Bruno", "Mars", 28, "Male");
+		 
+		 persons_list.add(alec);
+		 persons_list.add(justin);
+		 persons_list.add(olivia);
+		 persons_list.add(bruno);
+	}
+}

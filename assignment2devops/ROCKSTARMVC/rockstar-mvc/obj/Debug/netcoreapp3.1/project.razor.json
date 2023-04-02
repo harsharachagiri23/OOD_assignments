@@ -1,0 +1,90 @@
+{
+  "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/asp.net.mvc.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 800
+  },
+  "RootNamespace": "asp.net.mvc",
+  "Documents": [
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/Farmhouse.cshtml",
+      "TargetPath": "Views\\RockStar\\Farmhouse.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/Tiktok.cshtml",
+      "TargetPath": "Views\\RockStar\\Tiktok.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/GeorgeMichael.cshtml",
+      "TargetPath": "Views\\RockStar\\GeorgeMichael.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/Queen.cshtml",
+      "TargetPath": "Views\\RockStar\\Queen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/GeorgeMichael2.cshtml",
+      "TargetPath": "Views\\RockStar\\GeorgeMichael2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/Queen2.cshtml",
+      "TargetPath": "Views\\RockStar\\Queen2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/RockStar/Index.cshtml",
+      "TargetPath": "Views\\RockStar\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/harshavardhani/Downloads/DevOpsassignment2/rockstar-mvc/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
+  "SerializationFormat": "0.2"
+}

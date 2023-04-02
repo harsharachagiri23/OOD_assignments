@@ -1,0 +1,162 @@
+package edu.neu.csye6200;
+
+import edu.neu.csye6200.Item.AbstractFactoryAPI;
+import java.util.*;
+
+public class Cart {
+	
+	public List<Item> itemList = new ArrayList<Item>();
+	
+
+
+	
+	public void showCartTotal() {
+		double total = 0.0;
+		for(Item it : this.itemList) {
+			total = total + it.getPrice();
+		}
+		System.out.println("Total Price  " + total);
+	}
+	
+    public static void demo() {
+        System.out.println("\n\t" + Cart.class.getName() + ".demo()...");
+        
+        Cart objCart = new Cart();
+        System.out.println("Adding inital Items : ");
+        Item ik = AbstractFactoryAPI.AbstractItemFactory.getInstance();
+        Item almondMilk = ik.getObject(3, "Almond Milk", 2.49);
+        Item bread = ik.getObject(5, "Wheat Bread", 1.49);
+        Item otemObj = ik.getObject(2, "OJ", 3.49);
+        
+        objCart.itemList.add(almondMilk);
+        objCart.itemList.add(bread);
+        objCart.itemList.add(otemObj);
+        
+        objCart.show();
+     
+        System.out.println("Sorting based on Item id in ascending order");
+        objCart.itemList.stream().
+        sorted(Comparator.comparing(Item::getId)).
+        forEach(System.out::println);
+
+
+        System.out.println("Sorted based on Item name in ascending order");
+
+
+        objCart.itemList.stream().
+        sorted(Comparator.comparing(Item::getName)).
+        forEach(System.out::println);
+        
+        objCart.show();
+       
+        System.out.println("Sorted based on Price in ascending order");
+        
+        objCart.itemList.stream().
+        sorted(Comparator.comparing(Item::getPrice)).
+        forEach(System.out::println);
+        
+        objCart.show();
+       
+        objCart.showCartTotal();
+       
+        System.out.println("Removing Item from cart");
+        objCart.itemList.remove(0); 
+        objCart.itemList.remove(1); 
+        objCart.showCartTotal();
+
+        System.out.println("Addding Item Swiss Cheese to cart");
+
+        Item swissCheese = ik.getObject(6, "Swiss Cheese", 6.49);
+        objCart.itemList.add(swissCheese);
+        objCart.showCartTotal();
+        
+        System.out.println("Addding Item Blue Cheese to cart");
+
+        Item blueCheese = ik.getObject(7, "Blue Cheese", 6.49);
+        objCart.showCartTotal();
+        
+    }
+    
+ public static void demo2() {
+    	
+        Cart objCart = new Cart();
+        Item ik = AbstractFactoryAPI.AbstractItemFactory.getInstance();
+
+        if (objCart.itemList.size() == 0) {
+
+            Item almondMilk = ik.getObject(3, "Almond Milk", 2.49);
+            Item bread = ik.getObject(5, "Wheat Bread", 1.49);
+            Item otemObj = ik.getObject(2, "OJ", 3.49);
+            objCart.itemList.add(almondMilk);
+            objCart.itemList.add(bread);
+            objCart.itemList.add(otemObj);
+        }
+        
+        System.out.println("Sorted based on ID in ascending order");
+        Collections.sort(objCart.itemList, new 	Comparator<Item>() {
+        	// sort collection by element length
+        	public int compare(Item o1, Item o2) {
+        		return Integer.compare(o1.getId(), o2.getId());
+        	}
+        });
+        
+        objCart.show();
+
+        
+        System.out.println("Sorted based on Item name in ascending order");
+        Collections.sort(objCart.itemList, new 	Comparator<Item>() {
+        	// sort collection by element length
+        	public int compare(Item o1, Item o2) {
+        		return o1.getName().compareTo(o2.getName());
+        	}
+        });
+        
+        objCart.show();
+        
+        System.out.println("Sorted based on Price in ascending order");
+        Collections.sort(objCart.itemList, new 	Comparator<Item>() {
+        	// sort collection by element length
+        	public int compare(Item o1, Item o2) {
+        		return Double.compare(o1.getPrice(), o2.getPrice());
+        	}
+        });
+        
+        objCart.show();
+        
+        objCart.showCartTotal();
+      
+      System.out.println("Removing Item from cart");
+      objCart.itemList.remove(0); 
+      objCart.itemList.remove(1);  
+      objCart.showCartTotal();
+
+      System.out.println("Addding Item Swiss Cheese to cart");
+
+      Item swissCheese = ik.getObject(6, "Swiss Cheese", 6.49);
+      objCart.itemList.add(swissCheese);
+      objCart.showCartTotal();
+     
+      System.out.println("Addding Item Blue Cheese to cart");
+
+      Item blueCheese = ik.getObject(7, "Blue Cheese", 6.49);
+      objCart.showCartTotal();
+
+    }
+    
+   
+
+    
+    public void show() {
+    	for(Item itk : this.itemList) {
+    		System.out.println(itk.toString());
+    	}
+    }
+	
+    
+    public static void main(String args[]) {
+		Cart.demo();
+		Cart.demo2();
+	}
+    
+	
+}

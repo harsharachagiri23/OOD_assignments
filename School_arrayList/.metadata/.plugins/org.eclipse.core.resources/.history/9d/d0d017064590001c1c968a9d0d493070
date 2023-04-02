@@ -1,0 +1,95 @@
+package edu.neu.csye6200;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class School {
+	 List<Person> personRoster = new ArrayList<>();
+	 List<Student> studentRoster = new ArrayList<>();
+	 /*
+	  * Create Person, Student objects and add them to personRoster and studentRoster
+	  */
+	public void run() {
+		 Person alec = new Student(10001, "Alec", "Benjamin", 20, "Male", 2.8);
+		 Person justin = new Student(10002, "Justin", "Bieber", 24, "Male", 2.5);
+		 Person olivia = new Student(10003, "Olivia", "O'brien", 27, "Female", 3.7);
+		 Person bruno = new Student(10004, "Bruno", "Mars", 28, "Male", 3.3);
+		 Person ed = new Student(10005, "Ed", "Sheeran", 32, "Male", 3.0);
+		 
+		 addPerson(alec);
+		 addPerson(justin);
+		 addPerson(olivia);
+		 addPerson(bruno);
+		 addPerson(ed);
+		 
+		 Student taylor = new Student(11011, "Taylor", "Swift", 21, "Female", 3.2);
+		 Student dua = new Student(11012, "Dua", "Lipa", 22, "Female", 3.8);
+		 Student simon = new Student(11013, "Simon", "Dominic", 23, "Male", 3.5);
+		 Student charlie = new Student(11014, "Charlie", "Puth", 29, "Male", 4.0);
+		 Student ariana = new Student(11015, "Ariana", "Grande", 30, "Female", 3.0);
+		 
+		 addStudent(taylor);
+		 addStudent(dua);
+		 addStudent(simon);
+		 addStudent(charlie);
+		 addStudent(ariana);
+		 
+		 sortStudents();
+		 sortPersons();
+	}
+	/** addPerson method to add person object to personRoaster  
+	 * @param person Person object         
+	 * */
+	public void addPerson(Person person) {
+		this.personRoster.add(person);
+	}
+	/** addStudent method to add student object to studentRoaster  
+	 * @param student Student object         
+	 * */
+	public void addStudent(Student student) {
+		this.studentRoster.add(student);
+	}
+	/*
+	 * Sort students list based on different params and prints them
+	 */
+	public void sortStudents() {
+		//Sorting students by person ID
+		System.out.println("----------" + studentRoster.size() + " STUDENTS in the following collection: SORTED BY ID.----------");
+		Collections.sort(studentRoster, Person::compareByID);
+		studentRoster.forEach(System.out::println);
+		//Sorting students by last name
+		System.out.println("\n----------" + studentRoster.size() + " STUDENTS in the following collection: SORTED BY LAST NAME.----------");
+		Collections.sort(studentRoster, Person::compareByLastName);
+		studentRoster.forEach(System.out::println);
+		//Natural order Sorting students by age
+		System.out.println("\n-----------" + studentRoster.size() + " STUDENTS in the following collection: SORTED BY AGE.----------");
+		Collections.sort(studentRoster, Person::compareTo);
+		studentRoster.forEach(System.out::println);
+		//Sorting students by GPA
+		System.out.println("\n----------" + studentRoster.size() + " STUDENTS in the following collection: SORTED BY GPA.-----------");
+		Collections.sort(studentRoster, Person::compareByGPA);
+		studentRoster.forEach(System.out::println);
+	}
+	/*
+	 * Sort persons list based on different params and prints them
+	 */
+	public void sortPersons() {
+		//Sorting persons by person ID
+		System.out.println("\n------------" + personRoster.size() + " PERSONS in the following collection: SORTED BY ID.------------");
+		Collections.sort(personRoster, Person::compareByID);
+		personRoster.forEach(System.out::println);
+		//Natural order Sorting students by age
+		System.out.println("\n------------" + personRoster.size() + " PERSONS in the following collection: SORTED BY AGE.------------");
+		Collections.sort(personRoster, null);
+		personRoster.forEach(System.out::println);
+		//Sorting persons by last name
+		System.out.println("\n-----------" + personRoster.size() + " PERSONS in the following collection: SORTED BY LAST NAME.------------");
+		Collections.sort(personRoster, Person::compareByLastName);
+		personRoster.forEach(System.out::println);
+		//Sorting students by GPA
+		System.out.println("\n------------" + personRoster.size() + " PERSONS in the following collection: SORTED BY GPA.------------");
+		Collections.sort(personRoster, Person::compareByGPA);
+		personRoster.forEach(System.out::println);
+	}
+}

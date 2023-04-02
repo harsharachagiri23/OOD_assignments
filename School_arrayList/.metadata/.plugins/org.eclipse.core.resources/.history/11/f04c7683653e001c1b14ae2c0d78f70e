@@ -1,0 +1,38 @@
+package edu.neu.csye6200;
+
+public class Student extends Person{
+private int student_id;
+private int gpa;
+
+
+public Student() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Student(int id, int age, String name, int student_id, int gpa) {
+	super(id, age, name);
+	this.student_id = student_id;
+	this.gpa = gpa;
+	// TODO Auto-generated constructor stub
+}
+
+public Student(int student_id, int gpa) {
+	super();
+	this.student_id = student_id;
+	this.gpa = gpa;
+}
+public int getStudent_id() {
+	return student_id;
+}
+public void setStudent_id(int student_id) {
+	this.student_id = student_id;
+}
+public int getGpa() {
+	return gpa;
+}
+public void setGpa(int gpa) {
+	this.gpa = gpa;
+}
+
+
+}

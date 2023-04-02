@@ -1,0 +1,25 @@
+package edu.neu.csye6200;
+
+public class Student extends Person{
+private long student_id;
+private float gpa;
+
+public Student(String first_name, String last_name, int age, String gender, long student_id, float gpa) {
+	super(first_name, last_name, age, gender);
+	this.student_id = student_id;
+	this.gpa = gpa;
+}
+public long getStudent_id() {
+	return student_id;
+}
+public void setStudent_id(long student_id) {
+	this.student_id = student_id;
+}
+public float getGpa() {
+	return gpa;
+}
+public void setGpa(float gpa) {
+	this.gpa = gpa;
+}
+
+}

@@ -1,0 +1,89 @@
+package edu.neu.csye6200;
+
+import edu.neu.csye6200.Item.AbstractFactoryAPI;
+import java.util.*;
+
+public class Cart {
+	
+	public static List<Item> itemList = new ArrayList<Item>();
+	
+//	Comparator sortingByName = new Comparator() {
+//		   public int compare(Item it1, Item it2) {
+//			return it1.getName().compareTo(it2.getName());
+//		   }
+//
+//		@Override
+//			public int compare(Object o1, Object o2) {
+//				// TODO Auto-generated method stub
+//				return 0;
+//			}
+//		};
+
+	
+	public void showCartTotal() {
+		double total = 0.0;
+		for(Item it : itemList) {
+			total = total + it.getPrice();
+		}
+		System.out.println("Total Price of the cart " + total);
+	}
+	
+    public static void demo() {
+        System.out.println("\n\t" + Cart.class.getName() + ".demo()...");
+        
+        Cart objCart = new Cart();
+        System.out.println("Adding inital Items to cart : ");
+        Item almondMilk = AbstractFactoryAPI.AbstractItemFactory.getInstance(3, "Almond Milk", 2.49);
+        Item bread = AbstractFactoryAPI.AbstractItemFactory.getInstance(5, "Wheat Bread", 1.49);
+        Item otemObj = AbstractFactoryAPI.AbstractItemFactory.getInstance(2, "OJ", 3.49);
+        
+        itemList.add(almondMilk);
+        itemList.add(bread);
+        itemList.add(otemObj);
+        // Sort the list by item name in ascending order
+        itemList.sort((Item it1, Item it2) -> it1.getName().compareTo(it2.getName()));
+        System.out.println("Sorted based on Item name in ascending order");
+        itemList.forEach((s)->System.out.println(s)); 
+        // Sort the list by Price in ascending order
+        itemList.sort((Item it1, Item it2)-> it1.getPrice()-it2.getPrice()))); 
+        System.out.println("Sorted based on Price in ascending order");
+        itemList.forEach((s)->System.out.println(s)); 
+       
+        showCartTotal();
+        
+        System.out.println("Removing Item from cart");
+        itemList.remove(1); // Removing first element from ItemArraylist 
+        showCartTotal();
+
+        System.out.println("Addding Item Biryani to cart");
+        Item birObj = AbstractFactoryAPI.AbstractItemFactory.getInstance(10, "Biryani", 9.49);
+        showCartTotal();
+        
+//        objCart.show();
+    }
+    
+    public static void demo2() {
+    	
+        Cart objCart = new Cart();
+        
+        if (itemList.size() == 0) {
+        	Item almondMilk = AbstractFactoryAPI.AbstractItemFactory.getInstance(3, "Almond Milk", 2.49);
+            Item bread = AbstractFactoryAPI.AbstractItemFactory.getInstance(5, "Wheat Bread", 1.49);
+            Item otemObj = AbstractFactoryAPI.AbstractItemFactory.getInstance(2, "OJ", 3.49);
+            
+            itemList.add(almondMilk);
+            itemList.add(bread);
+            itemList.add(otemObj);
+        }
+        
+        
+        
+    }
+    
+    public void show() {
+    	for(Item itk : itemList) {
+    		System.out.println(itk.toString());
+    	}
+    }
+	
+}

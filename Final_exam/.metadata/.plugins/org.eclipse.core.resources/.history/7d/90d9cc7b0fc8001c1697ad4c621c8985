@@ -1,0 +1,8 @@
+package edu.neu.csye6200;
+
+public class AbstrractItemAPI {
+	public void showCaseUsage() {
+		System.out.println("* Inside Abstract class Store API *");
+	}
+
+}
